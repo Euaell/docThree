@@ -11,11 +11,11 @@ namespace QuizApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class participantController : ControllerBase
+    public class ParticipantController : ControllerBase
     {
         private readonly QuizDbContext _context;
 
-        public participantController(QuizDbContext context)
+        public ParticipantController(QuizDbContext context)
         {
             _context = context;
         }
@@ -24,10 +24,6 @@ namespace QuizApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<participant>>> GetParticipants()
         {
-          if (_context.Participants == null)
-          {
-              return NotFound();
-          }
             return await _context.Participants.ToListAsync();
         }
 
@@ -35,10 +31,6 @@ namespace QuizApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<participant>> Getparticipant(int id)
         {
-          if (_context.Participants == null)
-          {
-              return NotFound();
-          }
             var participant = await _context.Participants.FindAsync(id);
 
             if (participant == null)
@@ -52,13 +44,15 @@ namespace QuizApi.Controllers
         // PUT: api/participant/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> Putparticipant(int id, participant participant)
+        public async Task<IActionResult> Putparticipant(int id, ParticipantResult _participantResult)
         {
-            if (id != participant.ParticipantId)
-            {
+            if (id != _participantResult.ParticipantId)
                 return BadRequest();
-            }
 
+            participant participant = (await _context.Participants.FindAsync(id))!;
+            participant!.Score = _participantResult.Score;
+            participant.TimeTaken = _participantResult.TimeTaken;
+            
             _context.Entry(participant).State = EntityState.Modified;
 
             try
@@ -102,10 +96,6 @@ namespace QuizApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Deleteparticipant(int id)
         {
-            if (_context.Participants == null)
-            {
-                return NotFound();
-            }
             var participant = await _context.Participants.FindAsync(id);
             if (participant == null)
             {
