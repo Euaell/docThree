@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ASP.Net\\docThree\\QuizApi\\QuizApi.csproj": {}
+    "E:\\ASP.Net\\docThree\\QuizApi.csproj": {}
   },
   "projects": {
-    "E:\\ASP.Net\\docThree\\QuizApi\\QuizApi.csproj": {
+    "E:\\ASP.Net\\docThree\\QuizApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ASP.Net\\docThree\\QuizApi\\QuizApi.csproj",
+        "projectUniqueName": "E:\\ASP.Net\\docThree\\QuizApi.csproj",
         "projectName": "QuizApi",
-        "projectPath": "E:\\ASP.Net\\docThree\\QuizApi\\QuizApi.csproj",
+        "projectPath": "E:\\ASP.Net\\docThree\\QuizApi.csproj",
         "packagesPath": "C:\\Users\\euael\\.nuget\\packages\\",
-        "outputPath": "E:\\ASP.Net\\docThree\\QuizApi\\obj\\",
+        "outputPath": "E:\\ASP.Net\\docThree\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,10 @@
               "version": "[6.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[6.0.5, )"
             },
