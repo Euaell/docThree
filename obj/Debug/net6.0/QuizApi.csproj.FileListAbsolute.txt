@@ -548,3 +548,14 @@ E:\ASP.Net\docThree\bin\Debug\net6.0\runtimes\win-arm\native\e_sqlite3.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Google.Protobuf.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\MySql.Data.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\ZstdNet.dll

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using QuizApi.Models;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,11 +15,22 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<QuizDbContext>( options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
+// JSON Serializer
+builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+    .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+        = new DefaultContractResolver());
+
 var app = builder.Build();
+
+// Add cors
 app.UseCors(options =>
-    options.WithOrigins("http://localhost:3000")
+    options
+        // .WithOrigins("http://localhost:3000")
+        .AllowAnyOrigin()
         .AllowAnyMethod().AllowAnyHeader());
 
+// serve static files
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
