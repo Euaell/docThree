@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using MySql.Data.MySqlClient;
 using QuizApi.Models;
 
@@ -32,16 +33,15 @@ public class EmployeeController : ControllerBase
                         from 
                         Employee
             ";
-
+        
         DataTable table = new DataTable();
         string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-        MySqlDataReader myReader;
         using (MySqlConnection mycon = new MySqlConnection(sqlDataSource))
         {
             mycon.Open();
             using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
             {
-                myReader = myCommand.ExecuteReader();
+                var myReader = myCommand.ExecuteReader();
                 table.Load(myReader);
 
                 myReader.Close();
@@ -51,41 +51,59 @@ public class EmployeeController : ControllerBase
 
         return new JsonResult(table);
     }
-    
+
     [HttpPost]
-    public JsonResult Post(Employee emp)
+    public JsonResult Post()
     {
+        var req = Request.Form;
+        string imageName;
+        try
+        {
+            var postedImage = req.Files[0];
+            string filename = postedImage.FileName;
+            var physicalPath = _env.ContentRootPath + "/Images/" + filename;
+
+            using(var stream=new FileStream(physicalPath, FileMode.Create))
+            {
+                postedImage.CopyTo(stream);
+            }
+
+            imageName = filename;
+        } 
+        catch (Exception)
+        {
+            imageName = "anonymous.png";
+        }
+
         string query = @"
                         insert into Employee 
                         (EmployeeName,Department,DateOfJoining,PhotoFileName) 
                         values
                          (@EmployeeName,@Department,@DateOfJoining,@PhotoFileName) ;
             ";
-
+        
         DataTable table = new DataTable();
         string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-        MySqlDataReader myReader;
         using (MySqlConnection mycon = new MySqlConnection(sqlDataSource))
         {
             mycon.Open();
             using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
             {
-                myCommand.Parameters.AddWithValue("@EmployeeName", emp.EmployeeName);
-                myCommand.Parameters.AddWithValue("@Department", emp.Department);
-                myCommand.Parameters.AddWithValue("@DateOfJoining", emp.DateOfJoining);
-                myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
-
-                myReader = myCommand.ExecuteReader();
+                myCommand.Parameters.AddWithValue("@EmployeeName", req["EmployeeName"]);
+                myCommand.Parameters.AddWithValue("@Department", req["Department"]);
+                myCommand.Parameters.AddWithValue("@PhotoFileName", imageName);
+                myCommand.Parameters.AddWithValue("@DateOfJoining", req["StartDate"]);
+                
+                var myReader = myCommand.ExecuteReader();
                 table.Load(myReader);
-
+        
                 myReader.Close();
                 mycon.Close();
             }
         }
-
-        return new JsonResult("Added Successfully");
+        
+        return new JsonResult("file Uploaded");
     }
-
 
     [HttpPut]
     public JsonResult Put(Employee emp)
