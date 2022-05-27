@@ -559,3 +559,9 @@ E:\ASP.Net\docThree\bin\Debug\net6.0\K4os.Hash.xxHash.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\MySql.Data.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\Ubiety.Dns.Core.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\ZstdNet.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\package-lock.json
+E:\ASP.Net\docThree\bin\Debug\net6.0\package.json
+E:\ASP.Net\docThree\bin\Debug\net6.0\BCrypt.Net-Next.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\ScottBrady91.AspNetCore.Identity.BCryptPasswordHasher.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Vita.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\Vita.Modules.dll

@@ -74,9 +74,17 @@
               "target": "Package",
               "version": "[8.0.29, )"
             },
+            "ScottBrady91.AspNetCore.Identity.BCryptPasswordHasher": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "Vita.Modules": {
+              "target": "Package",
+              "version": "[1.9.3.1, )"
             }
           },
           "imports": [
