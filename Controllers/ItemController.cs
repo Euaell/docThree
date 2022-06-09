@@ -195,4 +195,33 @@ public class ItemController : ControllerBase
         
         return new JsonResult("Success");
     }
+    
+    // Delete api/item/5
+    [HttpDelete("{id}")]
+    public JsonResult DELETE(int id)
+    {
+        string query = @"
+                           DELETE FROM items
+                           WHERE itemId = @itemId
+               ";
+
+        DataTable table = new DataTable();
+        string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+        using (MySqlConnection myCon = new MySqlConnection(sqlDataSource))
+        {
+            myCon.Open();
+            using (MySqlCommand myCommand = new MySqlCommand(query, myCon))
+            {
+                myCommand.Parameters.AddWithValue("@itemId", id);
+                var reader = myCommand.ExecuteReader();
+                table.Load(reader);
+                    
+                reader.Close();
+                myCon.Close();
+            }    
+        }
+            
+        return new JsonResult(table);
+    }
+    
 }
