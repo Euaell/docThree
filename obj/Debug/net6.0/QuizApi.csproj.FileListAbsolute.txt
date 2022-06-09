@@ -565,3 +565,4 @@ E:\ASP.Net\docThree\bin\Debug\net6.0\BCrypt.Net-Next.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\ScottBrady91.AspNetCore.Identity.BCryptPasswordHasher.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\Vita.dll
 E:\ASP.Net\docThree\bin\Debug\net6.0\Vita.Modules.dll
+E:\ASP.Net\docThree\bin\Debug\net6.0\MySql.EntityFrameworkCore.dll

@@ -1634,6 +1634,20 @@
           "lib/net6.0/ZstdNet.dll": {}
         }
       },
+      "MySql.EntityFrameworkCore/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.1",
+          "MySql.Data": "8.0.29"
+        },
+        "compile": {
+          "lib/net6.0/MySql.EntityFrameworkCore.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MySql.EntityFrameworkCore.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -6099,6 +6113,19 @@
         "lib/netstandard2.1/ZstdNet.dll",
         "mysql.data.8.0.29.nupkg.sha512",
         "mysql.data.nuspec"
+      ]
+    },
+    "MySql.EntityFrameworkCore/6.0.1": {
+      "sha512": "0tXr3gSpOBb0KtTLlBjsQLWW5mk0eCx9SCHOF47O8Rb2Wu1hqiOhC06yBzE8H8d7bXIlqfuN6Iqpgb8OZ/A4kg==",
+      "type": "package",
+      "path": "mysql.entityframeworkcore/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/MySql.EntityFrameworkCore.dll",
+        "lib/net6.0/MySql.EntityFrameworkCore.xml",
+        "mysql.entityframeworkcore.6.0.1.nupkg.sha512",
+        "mysql.entityframeworkcore.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -10666,6 +10693,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.5",
       "MySql.Data >= 8.0.29",
+      "MySql.EntityFrameworkCore >= 6.0.1",
       "ScottBrady91.AspNetCore.Identity.BCryptPasswordHasher >= 1.3.0",
       "Swashbuckle.AspNetCore >= 6.3.0",
       "Vita.Modules >= 1.9.3.1"
@@ -10744,6 +10772,10 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[8.0.29, )"
+          },
+          "MySql.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.1, )"
           },
           "ScottBrady91.AspNetCore.Identity.BCryptPasswordHasher": {
             "target": "Package",

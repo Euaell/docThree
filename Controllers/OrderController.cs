@@ -29,8 +29,10 @@ namespace QuizApi.Controllers
             
             // needs tweek
             string query = @"
-                            SELECT orderId,itemId,userId,quantity,orderDate,info
-                            From `order`
+                            SELECT u.name AS userName,u.email,u.phone,i.name AS itemName,i.price,i.pic, orderId,`order`.itemId,`order`.userId,`order`.quantity,orderDate,info
+                            FROM `order`
+                            INNER JOIN `items` i on `order`.itemId = i.itemId
+                            INNER JOIN `user` u on `order`.userId = u.userId   
                ";
 
             DataTable table = new DataTable();
