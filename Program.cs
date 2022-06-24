@@ -51,7 +51,8 @@ app.UseCors(options =>
     options
         // .WithOrigins("http://localhost:3000")
         .AllowAnyOrigin()
-        .AllowAnyMethod().AllowAnyHeader());
+        .AllowAnyMethod()
+        .AllowAnyHeader());
 
 // serve static files
 app.UseStaticFiles(new StaticFileOptions

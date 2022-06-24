@@ -27,7 +27,6 @@ namespace QuizApi.Controllers
         public JsonResult Get()
         {
             
-            // needs tweek
             string query = @"
                             SELECT u.name AS userName,u.email,u.phone,i.name AS itemName,i.price,i.pic, orderId,`order`.itemId,`order`.userId,`order`.quantity,orderDate,info
                             FROM `order`
